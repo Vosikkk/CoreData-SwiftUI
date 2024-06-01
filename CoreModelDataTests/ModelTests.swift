@@ -12,6 +12,7 @@ final class ModelTests: XCTestCase {
 
     private var provider: CoreDataProvider!
     
+    
     override func setUp() {
         super.setUp()
         provider = ContactsProvider()
@@ -23,7 +24,7 @@ final class ModelTests: XCTestCase {
     }
     
     func test_checkDefaultValuesInNewContact_valuesShouldBeEmptyAndIsFavouriteIsFalse() {
-        let contact = Contact.empty(context: provider.context)
+        let contact = emptyContact
         XCTAssertEqual(contact.name, "", "Expected name to be empty")
         XCTAssertEqual(contact.phoneNumber, "", "Expected phone number to be empty")
         XCTAssertEqual(contact.email, "", "Expected email to be empty")
@@ -32,12 +33,26 @@ final class ModelTests: XCTestCase {
     }
     
     func test_isNotValidContactWithDefaultValues_shouldReturnFalse() {
-        let contact = Contact.empty(context: provider.context)
-        XCTAssertFalse(contact.isValid)
+        XCTAssertFalse(emptyContact.isValid)
     }
 
     func test_isValidContactWithFilledValues_shouldReturnTrue() {
-        let contact = Contact.preview(context: provider.context)
-        XCTAssertTrue(contact.isValid)
+        XCTAssertTrue(notEmptyContact.isValid)
     }
+    
+    func test_isBirthdayWhenCreateContact_shouldRetrunTrue() {
+        XCTAssertTrue(notEmptyContact.isBirthday)
+    }
+    
+    
+    
+    // MARK: - Helpers
+    
+    private var emptyContact: Contact {
+        Contact.empty(context: provider.context)
+    }
+    private var notEmptyContact: Contact {
+        Contact.preview(context: provider.context)
+    }
+    
 }
