@@ -30,5 +30,10 @@ final class ModelTests: XCTestCase {
         XCTAssertFalse(contact.isFavourite, "Expected isFavourite to be false")
         XCTAssertTrue(Calendar.current.isDateInToday(contact.dob), "Expected dob to be today")
     }
+    
+    func test_isValidContactWithDefaultValue_shouldReturnFalse() {
+        let contact = Contact.empty(context: provider.context)
+        XCTAssertFalse(contact.isValid)
+    }
 
 }
