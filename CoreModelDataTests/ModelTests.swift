@@ -31,9 +31,13 @@ final class ModelTests: XCTestCase {
         XCTAssertTrue(Calendar.current.isDateInToday(contact.dob), "Expected dob to be today")
     }
     
-    func test_isValidContactWithDefaultValue_shouldReturnFalse() {
+    func test_isNotValidContactWithDefaultValues_shouldReturnFalse() {
         let contact = Contact.empty(context: provider.context)
         XCTAssertFalse(contact.isValid)
     }
 
+    func test_isValidContactWithFilledValues_shouldReturnTrue() {
+        let contact = Contact.preview(context: provider.context)
+        XCTAssertTrue(contact.isValid)
+    }
 }
