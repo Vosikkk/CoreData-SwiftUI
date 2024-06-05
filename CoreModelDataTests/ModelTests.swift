@@ -49,6 +49,15 @@ final class ModelTests: XCTestCase {
         XCTAssertFalse(contact.isBirthday)
     }
     
+    func test_filterCorrectnessOfPredicateFormatWithFaveOption_shouldBeEqualIsFavouriteEqual1StringRepresentation() {
+        let request = Contact.filter(with: .init(filter: .fave))
+        XCTAssertEqual("isFavourite == 1", request.predicateFormat)
+    }
+    
+    func test_filterCorrectnessOfPredicateFormatWithAllOption_shouldBeEqualTRUEPREDICATEStringRepresentation() {
+        let request = Contact.filter(with: .init(filter: .all))
+        XCTAssertEqual("TRUEPREDICATE", request.predicateFormat)
+    }
     
     // MARK: - Helpers
     
@@ -58,5 +67,8 @@ final class ModelTests: XCTestCase {
     private var notEmptyContact: Contact {
         Contact.preview(context: provider.context)
     }
-    
+ 
+    private var previewContacts: [Contact] {
+        Contact.makePreview(count: 5, in: provider.context)
+    }
 }
