@@ -23,7 +23,7 @@ final class ModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_checkDefaultValuesInNewContact_valuesShouldBeEmptyAndIsFavouriteIsFalse() {
+    func test_defaultValuesInNewContact_shouldBeEmptyAndIsFavouriteShouldBeFalse() {
         let contact = emptyContact
         XCTAssertEqual(contact.name, "", "Expected name to be empty")
         XCTAssertEqual(contact.phoneNumber, "", "Expected phone number to be empty")
@@ -32,34 +32,50 @@ final class ModelTests: XCTestCase {
         XCTAssertTrue(Calendar.current.isDateInToday(contact.dob), "Expected dob to be today")
     }
     
-    func test_isNotValidContactWithDefaultValues_shouldReturnFalse() {
+    func test_defaultContactValidity_shouldReturnFalse() {
         XCTAssertFalse(emptyContact.isValid)
     }
 
-    func test_isValidContactWithFilledValues_shouldReturnTrue() {
+    func test_filledContactValidity_shouldReturnTrue() {
         XCTAssertTrue(notEmptyContact.isValid)
     }
     
-    func test_checkIsBirthdayPropertyWithTodayDateOfBirthday_shouldReturnTrue() {
+    func test_isBirthdayPropertyWithTodayDOB_shouldReturnTrue() {
         XCTAssertTrue(notEmptyContact.isBirthday)
     }
     
-    func test_checkIsBirthdayPropertyWithNotTodayDateOfBirthday_shouldReturnFalse() throws {
+    func test_isBirthdayPropertyWithNonTodayDOB_shouldReturnFalse() throws {
         let contact = try XCTUnwrap(Contact.makePreview(count: 2, in: provider.context).last)
         XCTAssertFalse(contact.isBirthday)
     }
     
-    func test_filterCorrectnessOfPredicateFormatWithFaveOption_shouldBeEqualIsFavouriteEqual1StringRepresentation() {
+    func test_filterWithFaveOption_shouldReturnFavPredicate() {
         let request = Contact.filter(with: .init(filter: .fave))
-        XCTAssertEqual("isFavourite == 1", request.predicateFormat)
+        XCTAssertEqual(favPredicate, request.predicateFormat)
     }
     
-    func test_filterCorrectnessOfPredicateFormatWithAllOption_shouldBeEqualTRUEPREDICATEStringRepresentation() {
+    func test_filterWithAllOption_shouldReturnTruePredicate() {
         let request = Contact.filter(with: .init(filter: .all))
-        XCTAssertEqual("TRUEPREDICATE", request.predicateFormat)
+        XCTAssertEqual(truePredicate, request.predicateFormat)
+    }
+    
+    func test_filterWithQuery_shouldReturnNameContainsQueryPredicate() {
+        let request = Contact.filter(with: .init(query: query))
+        XCTAssertEqual("name CONTAINS[cd] \"\(query)\"", request.predicateFormat)
+    }
+    
+    func test_filterWithQueryAndFaveOption_shouldReturnNameContainsQueryAndFavPredicate() {
+        let request = Contact.filter(with: .init(query: query, filter: .fave))
+        XCTAssertEqual("name CONTAINS[cd] \"\(query)\" AND \(favPredicate)", request.predicateFormat)
     }
     
     // MARK: - Helpers
+    
+    private let favPredicate: String = "isFavourite == 1"
+    
+    private let truePredicate: String = "TRUEPREDICATE"
+    
+    private let query: String = "Test"
     
     private var emptyContact: Contact {
         Contact.empty(context: provider.context)
@@ -67,8 +83,5 @@ final class ModelTests: XCTestCase {
     private var notEmptyContact: Contact {
         Contact.preview(context: provider.context)
     }
- 
-    private var previewContacts: [Contact] {
-        Contact.makePreview(count: 5, in: provider.context)
-    }
+
 }
