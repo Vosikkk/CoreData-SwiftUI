@@ -18,6 +18,7 @@
 		382581C32C08C14A00AE01E2 /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382581C22C08C14A00AE01E2 /* ContactDetailView.swift */; };
 		382581C52C08C40900AE01E2 /* CreateContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382581C42C08C40900AE01E2 /* CreateContactView.swift */; };
 		382581C82C09207500AE01E2 /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382581C72C09207500AE01E2 /* EditContactViewModel.swift */; };
+		384AE6AD2C1111680081A3BA /* ContactsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384AE6AC2C1111680081A3BA /* ContactsProviderTests.swift */; };
 		38685AC42C0A077C0084692B /* NoContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38685AC32C0A077C0084692B /* NoContactView.swift */; };
 		389F43312C0B54BB0077BDA1 /* SearchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F43302C0B54BB0077BDA1 /* SearchConfig.swift */; };
 		389F43332C0B5D770077BDA1 /* UniversalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F43322C0B5D770077BDA1 /* UniversalPicker.swift */; };
@@ -48,6 +49,7 @@
 		382581C22C08C14A00AE01E2 /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		382581C42C08C40900AE01E2 /* CreateContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactView.swift; sourceTree = "<group>"; };
 		382581C72C09207500AE01E2 /* EditContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewModel.swift; sourceTree = "<group>"; };
+		384AE6AC2C1111680081A3BA /* ContactsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsProviderTests.swift; sourceTree = "<group>"; };
 		38685AC32C0A077C0084692B /* NoContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContactView.swift; sourceTree = "<group>"; };
 		389F43302C0B54BB0077BDA1 /* SearchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfig.swift; sourceTree = "<group>"; };
 		389F43322C0B5D770077BDA1 /* UniversalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalPicker.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				389F43462C0B90F30077BDA1 /* ModelTests.swift */,
+				384AE6AC2C1111680081A3BA /* ContactsProviderTests.swift */,
 			);
 			path = CoreModelDataTests;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				389F43472C0B90F30077BDA1 /* ModelTests.swift in Sources */,
+				384AE6AD2C1111680081A3BA /* ContactsProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
