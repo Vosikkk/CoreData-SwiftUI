@@ -40,10 +40,14 @@ final class ModelTests: XCTestCase {
         XCTAssertTrue(notEmptyContact.isValid)
     }
     
-    func test_isBirthdayWhenCreateContact_shouldRetrunTrue() {
+    func test_checkIsBirthdayPropertyWithTodayDateOfBirthday_shouldReturnTrue() {
         XCTAssertTrue(notEmptyContact.isBirthday)
     }
     
+    func test_checkIsBirthdayPropertyWithNotTodayDateOfBirthday_shouldReturnFalse() throws {
+        let contact = try XCTUnwrap(Contact.makePreview(count: 2, in: provider.context).last)
+        XCTAssertFalse(contact.isBirthday)
+    }
     
     
     // MARK: - Helpers
