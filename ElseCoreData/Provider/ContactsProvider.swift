@@ -23,7 +23,7 @@ final class ContactsProvider: CoreDataProvider {
     
     typealias Context = NSManagedObjectContext
     
-    private let persistentContainer: NSPersistentContainer
+    let persistentContainer: NSPersistentContainer
     
     static var name: String = "ContactsDataModel"
     
@@ -34,6 +34,7 @@ final class ContactsProvider: CoreDataProvider {
     var newContext: Context {
         persistentContainer.newBackgroundContext()
     }
+
     
     init(container: NSPersistentContainer = NSPersistentContainer(name: name)) {
         persistentContainer = container
