@@ -10,6 +10,7 @@ import CoreData
 
 
 public protocol CoreDataProvider {
+
     var context: NSManagedObjectContext { get }
     var newContext: NSManagedObjectContext { get }
     func exists<T: NSManagedObject>(_ contact: T, in context: NSManagedObjectContext) -> T?
@@ -19,7 +20,6 @@ public protocol CoreDataProvider {
 
 
 final class ContactsProvider: CoreDataProvider {
-   
     
     typealias Context = NSManagedObjectContext
     

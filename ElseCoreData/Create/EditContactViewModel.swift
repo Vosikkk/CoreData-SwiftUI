@@ -6,33 +6,39 @@
 //
 
 import CoreData
+import Observation
 
 
-final class EditContactViewModel: ObservableObject {
+@Observable
+final class EditContactViewModel {
     
-    @Published var contact: Contact
+    var contact: Contact
     
     private let context: NSManagedObjectContext
     private let provider: CoreDataProvider
     
-    let isNew: Bool
+   
+    private(set) var isNew: Bool
     
     init(provider: CoreDataProvider, contact: Contact? = nil) {
         self.provider = provider
-        self.context = provider.newContext
+        context = provider.newContext
         if let contact,
            let existingContactCopy = provider.exists(contact, in: context) {
             self.contact = existingContactCopy
             self.isNew = false
         } else {
-            self.contact = Contact(context: self.context)
+            self.contact = Contact(context: context)
             self.isNew = true 
         }
+    }
+    
+    var _context: NSManagedObjectContext {
+        context
     }
     
     func save() throws {
         try provider.persist(in: context)
     }
 }
-
 

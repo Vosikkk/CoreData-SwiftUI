@@ -11,7 +11,7 @@ struct CreateContactView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @ObservedObject var vm: EditContactViewModel
+    @Bindable var vm: EditContactViewModel
     
     @State private var hasError: Bool = false
     

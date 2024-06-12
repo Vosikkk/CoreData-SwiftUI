@@ -34,7 +34,6 @@ final class Contact: NSManagedObject, Identifiable {
     
     override func awakeFromInsert() {
         super.awakeFromInsert()
-        
         setPrimitiveValue(Date.now, forKey: "dob")
         setPrimitiveValue(false, forKey: "isFavourite")
     }

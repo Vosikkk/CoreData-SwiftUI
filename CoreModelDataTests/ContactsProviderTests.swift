@@ -71,6 +71,4 @@ final class ContactsProviderTests: XCTestCase {
                
         waitForExpectations(timeout: 0.1, handler: nil)
     }
-    
-    
 }

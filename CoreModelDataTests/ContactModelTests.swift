@@ -1,5 +1,5 @@
 //
-//  ModelTests.swift
+//  ContactProviderTests.swift
 //  CoreModelDataTests
 //
 //  Created by Саша Восколович on 01.06.2024.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import ElseCoreData
 
-final class ModelTests: XCTestCase {
+final class ContactModelTests: XCTestCase {
 
     private var provider: CoreDataProvider!
     
