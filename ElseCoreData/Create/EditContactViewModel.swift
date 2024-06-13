@@ -33,10 +33,6 @@ final class EditContactViewModel {
         }
     }
     
-    var _context: NSManagedObjectContext {
-        context
-    }
-    
     func save() throws {
         try provider.persist(in: context)
     }

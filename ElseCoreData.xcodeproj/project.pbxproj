@@ -25,6 +25,7 @@
 		389F43332C0B5D770077BDA1 /* UniversalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F43322C0B5D770077BDA1 /* UniversalPicker.swift */; };
 		389F43362C0B645B0077BDA1 /* UniversalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F43352C0B645B0077BDA1 /* UniversalButton.swift */; };
 		389F43472C0B90F30077BDA1 /* ContactModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F43462C0B90F30077BDA1 /* ContactModelTests.swift */; };
+		38E5A3212C1B3239003770BA /* MockCoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5A3202C1B3239003770BA /* MockCoreDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		389F43352C0B645B0077BDA1 /* UniversalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalButton.swift; sourceTree = "<group>"; };
 		389F433D2C0B90D60077BDA1 /* CoreModelDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreModelDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		389F43462C0B90F30077BDA1 /* ContactModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModelTests.swift; sourceTree = "<group>"; };
+		38E5A3202C1B3239003770BA /* MockCoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				389F43462C0B90F30077BDA1 /* ContactModelTests.swift */,
 				384AE6AC2C1111680081A3BA /* ContactsProviderTests.swift */,
 				386317A72C1A5E8900D44623 /* EditContactViewModelTests.swift */,
+				38E5A3202C1B3239003770BA /* MockCoreDataProvider.swift */,
 			);
 			path = CoreModelDataTests;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				389F43472C0B90F30077BDA1 /* ContactModelTests.swift in Sources */,
+				38E5A3212C1B3239003770BA /* MockCoreDataProvider.swift in Sources */,
 				386317A82C1A5E8900D44623 /* EditContactViewModelTests.swift in Sources */,
 				384AE6AD2C1111680081A3BA /* ContactsProviderTests.swift in Sources */,
 			);

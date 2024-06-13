@@ -12,8 +12,23 @@ import XCTest
 final class EditContactViewModelTests: XCTestCase {
 
     
-    func test() {
-        XCTFail()
+    private var mockProvider: CoreDataProvider!
+    
+    override func setUp() {
+        super.setUp()
+        mockProvider = MockCoreDataProvider()
+    }
+    
+    
+    override func tearDown() {
+        mockProvider = nil
+        super.tearDown()
+    }
+    
+    func test_initWithoutContactModel_shouldCreateNewContactAndisNewTrue() {
+        let vm = EditContactViewModel(provider: mockProvider)
+        XCTAssertNotNil(vm.contact)
+        XCTAssertEqual(vm.isNew, true)
     }
     
    
