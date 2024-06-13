@@ -60,6 +60,7 @@
 		389F433D2C0B90D60077BDA1 /* CoreModelDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreModelDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		389F43462C0B90F30077BDA1 /* ContactModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModelTests.swift; sourceTree = "<group>"; };
 		38E5A3202C1B3239003770BA /* MockCoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataProvider.swift; sourceTree = "<group>"; };
+		38E5A3222C1B3C09003770BA /* ElseCoreData.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ElseCoreData.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 		3825819D2C08B5A400AE01E2 = {
 			isa = PBXGroup;
 			children = (
+				38E5A3222C1B3C09003770BA /* ElseCoreData.xctestplan */,
 				382581A82C08B5A400AE01E2 /* ElseCoreData */,
 				389F433E2C0B90D60077BDA1 /* CoreModelDataTests */,
 				382581A72C08B5A400AE01E2 /* Products */,

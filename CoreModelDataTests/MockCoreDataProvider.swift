@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ElseCoreData
+@testable import ElseCoreData
 import CoreData
 
 
@@ -22,6 +22,8 @@ class MockCoreDataProvider: CoreDataProvider {
         mockContext
     }
     
+    var contact: Contact?
+    
     init() {
         let persistentContainer = NSPersistentContainer(name: "ContactsDataModel")
         persistentContainer.loadPersistentStores { (_, error) in
@@ -33,7 +35,7 @@ class MockCoreDataProvider: CoreDataProvider {
     }
     
     func exists<T>(_ contact: T, in context: NSManagedObjectContext) -> T? where T : NSManagedObject {
-        return nil
+        contact
     }
     
     func delete<T>(_ contact: T, in context: NSManagedObjectContext) throws where T : NSManagedObject {

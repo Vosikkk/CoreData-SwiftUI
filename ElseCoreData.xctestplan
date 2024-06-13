@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "8C3AE799-9A96-4DF1-B78A-333D9A13F01A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ElseCoreData.xcodeproj",
+      "identifier" : "382581A52C08B5A400AE01E2",
+      "name" : "ElseCoreData"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ElseCoreData.xcodeproj",
+        "identifier" : "389F433C2C0B90D60077BDA1",
+        "name" : "CoreModelDataTests"
+      }
+    }
+  ],
+  "version" : 1
+}
