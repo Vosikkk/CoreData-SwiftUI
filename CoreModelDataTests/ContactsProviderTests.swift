@@ -24,7 +24,7 @@ final class ContactsProviderTests: XCTestCase {
     }
    
 
-    func test_existsContact_shouldBeEqualToTestContact() throws {
+    func test_existsContact_shouldBeEqualToTestContact() async throws {
         let contact: Contact = .init(
             context: provider.context,
             name: "Test",
@@ -37,7 +37,7 @@ final class ContactsProviderTests: XCTestCase {
         
         // Here we check, is our func persist doesn't let save context without changes
         XCTAssertEqual(provider.context.hasChanges, true)
-        try provider.persist(in: provider.context)
+        try await provider.persist(in: provider.context)
         XCTAssertEqual(provider.context.hasChanges, false)
         
         XCTAssertEqual(provider.exists(contact, in: provider.context), contact)
@@ -62,8 +62,8 @@ final class ContactsProviderTests: XCTestCase {
         try provider.delete(contact, in: provider.context)
         await provider.context.perform {
             XCTAssertEqual(self.provider.exists(contact, in: self.provider.context), nil)
-            
+          
         }
-        XCTAssertEqual(provider.context.hasChanges, true)
+        XCTAssertEqual(self.provider.context.hasChanges, true)
     }
 }

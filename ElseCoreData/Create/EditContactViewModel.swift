@@ -33,8 +33,8 @@ final class EditContactViewModel {
         }
     }
     
-    func save() throws {
-        try provider.persist(in: context)
+    func save() async throws {
+        try await provider.persist(in: context)
     }
 }
 

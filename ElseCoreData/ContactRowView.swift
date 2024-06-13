@@ -52,10 +52,12 @@ struct ContactRowView: View {
 private extension ContactRowView {
     func toogleFave() {
         contact.isFavourite.toggle()
-        do {
-            try provider.persist(in: context)
-        } catch {
-            print(error.localizedDescription)
+        Task {
+            do {
+                try await provider.persist(in: context)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 }

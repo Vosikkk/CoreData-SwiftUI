@@ -82,11 +82,13 @@ struct CreateContactView: View {
 private extension CreateContactView {
     func validate() {
         if vm.contact.isValid {
-            do {
-                try vm.save()
-                dismiss()
-            } catch {
-                print(error.localizedDescription)
+            Task {
+                do {
+                    try await vm.save()
+                    dismiss()
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         } else {
             hasError = true

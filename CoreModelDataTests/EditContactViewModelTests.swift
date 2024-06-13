@@ -40,10 +40,10 @@ final class EditContactViewModelTests: XCTestCase {
         XCTAssertEqual(vm.contact, contact)
     }
     
-    func test_save_persistCallEqualToOne() throws {
+    func test_save_persistCallEqualToOne() async throws {
         let vm = EditContactViewModel(provider: mockProvider)
         XCTAssertEqual(mockProvider.persistCall, 0)
-        try vm.save()
+        try await vm.save()
         XCTAssertEqual(mockProvider.persistCall, 1)
     }
 }

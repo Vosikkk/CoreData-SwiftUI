@@ -15,7 +15,7 @@ public protocol CoreDataProvider {
     var newContext: NSManagedObjectContext { get }
     func exists<T: NSManagedObject>(_ contact: T, in context: NSManagedObjectContext) -> T?
     func delete<T: NSManagedObject>(_ contact: T, in context: NSManagedObjectContext) throws
-    func persist(in context: NSManagedObjectContext) throws
+    func persist(in context: NSManagedObjectContext) async throws
 }
 
 
@@ -52,9 +52,11 @@ final class ContactsProvider: CoreDataProvider {
     }
     
     
-    func persist(in context: Context) throws {
+    func persist(in context: Context) async throws {
         if context.hasChanges {
-            try context.save()
+            try await context.perform {
+                try context.save()
+            }
         }
     }
     
@@ -65,10 +67,8 @@ final class ContactsProvider: CoreDataProvider {
     func delete<T: NSManagedObject>(_ contact: T, in context: Context) throws {
         if let existingContact = exists(contact, in: context) {
             context.delete(existingContact)
-            Task(priority: .background) {
-                try await context.perform {
-                    try context.save()
-                }
+            Task {
+                try await persist(in: context)
             }
         }
     }
