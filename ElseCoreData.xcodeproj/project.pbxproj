@@ -26,6 +26,7 @@
 		389F43362C0B645B0077BDA1 /* UniversalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F43352C0B645B0077BDA1 /* UniversalButton.swift */; };
 		389F43472C0B90F30077BDA1 /* ContactModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F43462C0B90F30077BDA1 /* ContactModelTests.swift */; };
 		38E5A3212C1B3239003770BA /* MockCoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5A3202C1B3239003770BA /* MockCoreDataProvider.swift */; };
+		38E5A3242C1B3FC5003770BA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5A3232C1B3FC5003770BA /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		389F43462C0B90F30077BDA1 /* ContactModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModelTests.swift; sourceTree = "<group>"; };
 		38E5A3202C1B3239003770BA /* MockCoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataProvider.swift; sourceTree = "<group>"; };
 		38E5A3222C1B3C09003770BA /* ElseCoreData.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ElseCoreData.xctestplan; sourceTree = "<group>"; };
+		38E5A3232C1B3FC5003770BA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			children = (
 				389F43322C0B5D770077BDA1 /* UniversalPicker.swift */,
 				389F43352C0B645B0077BDA1 /* UniversalButton.swift */,
+				38E5A3232C1B3FC5003770BA /* Utils.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				382581BB2C08B7E300AE01E2 /* Contact.swift in Sources */,
 				382581BF2C08BA2400AE01E2 /* ContactsProvider.swift in Sources */,
 				382581C32C08C14A00AE01E2 /* ContactDetailView.swift in Sources */,
+				38E5A3242C1B3FC5003770BA /* Utils.swift in Sources */,
 				382581C82C09207500AE01E2 /* EditContactViewModel.swift in Sources */,
 				382581B92C08B5F300AE01E2 /* ContactsDataModel.xcdatamodeld in Sources */,
 				382581AC2C08B5A400AE01E2 /* ContentView.swift in Sources */,

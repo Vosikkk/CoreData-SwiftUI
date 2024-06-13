@@ -4,27 +4,23 @@
 //
 //  Created by Саша Восколович on 13.06.2024.
 //
-import CoreData
+
 import XCTest
 @testable import ElseCoreData
 
 
 final class EditContactViewModelTests: XCTestCase {
 
-    
     private var mockProvider: MockCoreDataProvider!
-    var context: NSManagedObjectContext!
-    
+  
     override func setUp() {
         super.setUp()
         mockProvider = MockCoreDataProvider()
-        context = mockProvider.context
     }
     
     
     override func tearDown() {
         mockProvider = nil
-        context = nil
         super.tearDown()
     }
     
@@ -36,7 +32,7 @@ final class EditContactViewModelTests: XCTestCase {
     
    
     func test_initWithContactModel_shouldAddContactAndIsNewFalse() {
-        let contact = Contact(context: context)
+        let contact = Contact(context: mockProvider.mockContext)
         mockProvider.contact = contact
         
         let vm = EditContactViewModel(provider: mockProvider, contact: contact)
@@ -44,7 +40,11 @@ final class EditContactViewModelTests: XCTestCase {
         XCTAssertEqual(vm.contact, contact)
     }
     
-    
-   
+    func test_save_persistCallEqualToOne() throws {
+        let vm = EditContactViewModel(provider: mockProvider)
+        XCTAssertEqual(mockProvider.persistCall, 0)
+        try vm.save()
+        XCTAssertEqual(mockProvider.persistCall, 1)
+    }
 }
 

@@ -24,6 +24,9 @@ class MockCoreDataProvider: CoreDataProvider {
     
     var contact: Contact?
     
+    var persistCall: Int = 0
+    
+    
     init() {
         let persistentContainer = NSPersistentContainer(name: "ContactsDataModel")
         persistentContainer.loadPersistentStores { (_, error) in
@@ -43,9 +46,7 @@ class MockCoreDataProvider: CoreDataProvider {
     }
     
     func persist(in context: NSManagedObjectContext) throws {
-        
+         persistCall += 1
     }
-    
-    
 }
 
