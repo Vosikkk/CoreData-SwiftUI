@@ -62,8 +62,7 @@ final class ContactsProviderTests: XCTestCase {
         try provider.delete(contact, in: provider.context)
         await provider.context.perform {
             XCTAssertEqual(self.provider.exists(contact, in: self.provider.context), nil)
-          
+            XCTAssertEqual(self.provider.context.hasChanges, true)
         }
-        XCTAssertEqual(self.provider.context.hasChanges, true)
     }
 }
